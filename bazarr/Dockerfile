@@ -19,7 +19,7 @@ RUN \
         cd subsync && \
         git checkout --detach 0.17 && \
         sed "/configpath = os.path.join/i configdir = os.path.join('/config', appname)\nshareddir = configdir" subsync/config.py.template > subsync/config.py && \
-        pip3 install . && \
+        pip3 install setuptools wheel && \
         cd / && rm -rf /tmp/delme && \
         apk del python3-dev swig ffmpeg4-dev git libtool autoconf automake musl-dev bison make linux-headers g++ && \
         sed -i -e 's:time.sleep.*$:time.sleep(30.0):g' /app/bazarr/bin/bazarr.py
